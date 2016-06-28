@@ -29,4 +29,81 @@ public int hashCode() {
   return result;
 }
 ```
-      
+###### Exception
+```
+try{
+Classname.class.newInstance();
+}catch(InstantiationException | IllegalAccessException e){
+e.printStackTrace();
+}
+```
+
+old ugly way
+```
+Path dir = Paths.get("src","main","java","pkg");
+try{
+  br = Files.newBufferedReader(dir.resolve("a.java"));
+}catch(IOException e){
+  e.printStackTrace();
+}finally{
+  if(br!=null)try{
+    br.close();
+  }catch(IOException e){
+  }
+}
+```
+try with resource
+```
+Path dir = Paths.get("src","main","java","pkg");
+try(BufferedReader br = Files.newBufferedReader(dir.resolve("a.java"))){  //auto close
+  System.out.println(br.readLine());
+}catch(IOException e){
+  e.printStackTrace();
+}
+```
+######
+genetics,when compile into bytecode, will be erased
+######bounds and wildcards
+```
+public static void printAllFilter(List <? extends Emp> emp, Predicate<? super Emp> predicate){
+  for(Emp e: emp){
+    if(predicate.test(e){
+    }
+  }
+}
+```
+invoke
+```
+H.printAllFilter(emp,e->e.toString(e.length()%2==0))
+```
+
+for static void:
+```
+public static <? extends T> void fix(List<T> l){}
+```
+#####
+######
+```
+Path p = Paths.get("/a");
+p.resolve("subdic");
+p.resolveSibling("sibdic2");
+```
+absoulte...
+```
+Path p = Paths.get(".");
+p.toAbsolutePath();
+p.toUri();
+p.toAbsolutePath().getParent();
+p.toAbsolutePath().getRoot();
+p.toAbsolutePath().getFileName();
+```
+normalize
+```
+Paths.get("/a/b/c/../d").normalize();
+```
+File
+```
+File f =new File(".");
+f.toPath().toAbsolutePath());
+```
+```
