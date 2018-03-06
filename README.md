@@ -1,9 +1,28 @@
-#### oradvjavadev
-#####2-2
+# oradvjavadev
+## 1. Interfaces, Inheritance, and Objects
+### 1 Abstract Classes and Methods
+this refers to current object.
+```
+public static final String DEFAULT="DEFAULT";
+public static int nextId;
+public Employee(){
+  this(DEFAULT_NAME);  //method,call next constructor
+}
+public Employee(String name){
+  id=nextId++;
+  this.name=name;
+  hireDate=LocalDate.now();
+}
+
+
+```
+
+### 2 Using Abstract Classes
 ```
 import java.text.NumberFormat;
 import java.util.Locale;
 NumberFormat nf = NumberFormat.getCurrencyInstance(Locale.FRANCE).format(100.00);
+System.out.println(nf.getClass().getName());
 ```
 ######2-3
 using sort, implements Comparable<>, create compareTo
