@@ -24,9 +24,23 @@ import java.util.Locale;
 NumberFormat nf = NumberFormat.getCurrencyInstance(Locale.FRANCE).format(100.00);
 System.out.println(nf.getClass().getName());
 ```
-######2-3
-using sort, implements Comparable<>, create compareTo
-######2-4 0verride equals hashCode
+### 3 Implementing Interfaces
+using sort, implements Comparable<>, create compareTo  
+Ex
+```
+@Override
+public int compareTo(Task task){
+  return name.compareTo(task.name);
+}
+```
+
+### 4 Static and Default Methods in Interfaces
+```
+List <Integer> nums = Stream.of(-2,1,3,-4).collect(Collections.toList());
+boolean removed = nums.removeIf(n->n<=0);
+nums.forEach();
+```
+### 5 Overriding toString, equals and hashCode
 equals
 ```
 public boolean equals(Object o){
