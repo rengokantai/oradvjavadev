@@ -139,4 +139,17 @@ File
 File f =new File(".");
 f.toPath().toAbsolutePath());
 ```
+
+
+
+## 9. New Features in Java 8
+### 1 Lambdas
+```
+Stream.of(3,1,4,1,5,9).forEach(n->System.out.println(n));
+Comsumer<Integer> printer = n->System.out.println(n));
+Stream.of(3,1,4,1,5,9).forEach(printer);
+Predicate<Integer> mod3=n->n%3==0;
+Stream.of(1,2,3).filter(mod3).forEach(printer);
+Function<Integer,Integer> doubler = n->n*2;
+Stream.of(1,2,3).map(doubler).filter(mod3).forEach(printer);
 ```
